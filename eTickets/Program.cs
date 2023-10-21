@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>((provider, options) =>
 {
     IConfiguration configuration = provider.GetRequiredService<IConfiguration>();
-    string connectionString = configuration.GetConnectionString("DefaultConnection");
+    string connectionString = configuration.GetConnectionString("DefaultConnectionString");
     options.UseSqlServer(connectionString);
 });
 
