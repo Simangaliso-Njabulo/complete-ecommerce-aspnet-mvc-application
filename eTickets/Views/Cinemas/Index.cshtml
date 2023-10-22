@@ -5,13 +5,10 @@
 }
 
 <div class="row">
-
     <div class="col-md-8 offset-md-2">
 
-        <table class="table">
-            
+        <table class="table">    
             <thead>
-                
                 <tr class="text-center">
                     
                     <th>@Html.DisplayNameFor(model => model.Logo)</th>
@@ -20,15 +17,13 @@
                     <th>Actions</th>
                
                 </tr>
-            
             </thead>
             
             <tbody>
                 
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        
+                    <tr>   
                         <td class="align-middle">
                             <img class="rounded-circle" src="@item.Logo" alt="@item.Name" style="max-width: 150px" />
                         </td>
@@ -59,7 +54,6 @@
                             </a>
 
                         </td>
-
                     </tr>
                 }
             </tbody>
