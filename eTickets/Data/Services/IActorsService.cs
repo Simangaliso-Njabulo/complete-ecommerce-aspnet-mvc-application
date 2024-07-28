@@ -1,4 +1,6 @@
 ﻿using eTickets.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
@@ -8,6 +10,6 @@ namespace eTickets.Data.Services
         Task<Actor> GetByIdAsync(int id);
         Task AddAsync(Actor actor);
         Task<Actor> UpdateAsync(int id, Actor newActor);
-        void Delete(int id);
+        Task DeleteAsync(int id);
     }
 }

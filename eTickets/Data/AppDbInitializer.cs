@@ -1,5 +1,9 @@
-﻿using eTickets.Data.Enums;
-using eTickets.Models;
+﻿using eTickets.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace eTickets.Data
 {
@@ -311,6 +315,7 @@ namespace eTickets.Data
                     context.SaveChanges();
                 }
             }
+
         }
     }
 }
