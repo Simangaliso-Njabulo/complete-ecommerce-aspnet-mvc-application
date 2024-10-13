@@ -5,6 +5,7 @@ using eTickets.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace eTickets.Controllers
@@ -76,6 +77,20 @@ namespace eTickets.Controllers
                 UserName = registerVM.EmailAddress
             };
             var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
+
+            if (!newUserResponse.Succeeded) 
+            {
+                var errors = newUserResponse.Errors;
+                var consolidatedError = "";
+
+                foreach (var error in errors) 
+                {
+                    consolidatedError += error.Description + "\n";
+                }
+                
+                TempData["Error"] = "Failed to create user. " + consolidatedError;
+                return View(registerVM);
+            }
 
             if (newUserResponse.Succeeded)
                 await _userManager.AddToRoleAsync(newUser, UserRoles.User);
